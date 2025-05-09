@@ -21,24 +21,27 @@ if (!filter_var($username, FILTER_VALIDATE_EMAIL)) {
 } 
 
 
-$query = "select * from admin where Username = '$username' and '$password' and id ='2'";
-if (!$query){
+$query = "select * from admin where Username = '$username' and '$password'";
+$result = mysqli_query($conn,$query);
+if (!$result){
     echo 'error with your query';
     exit;
 }
-$result = mysqli_query($conn,$query);
 
-if($result){
+$num = mysqli_num_rows($result);
+
+if ($num == 0){
+    $msg = 'error';
+    $comment = 'Error! No Information found!';
+    include('index.php');
+    exit;
+}
+else{
     $_SESSION['valid_user'] = $username;
     // $_SESSION['valid_name'] = $row['firstname'];
     header('location:dashboard.php');
     exit;
 }
-else{
-    $msg = 'error';
-    $comment = 'Error Logging in!';
-    include('index.php');
-    exit;
-}
+
 
 ?>
