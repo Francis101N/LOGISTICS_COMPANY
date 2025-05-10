@@ -1,3 +1,4 @@
+<br>
 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <!-- User Profile-->
