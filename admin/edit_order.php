@@ -170,7 +170,7 @@ if($_GET['id'])
             <div class="page-breadcrumb bg-white"><br>
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Edit Product</h4>
+                        <h4 class="page-title">Edit Order</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
@@ -196,7 +196,7 @@ if($_GET['id'])
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
-                            <h3 class="box-title">Edit Products</h3>
+                            <h3 class="box-title">Edit Orders</h3><br>
                             <form action="proc-edit-order.php" method="post">
                             <div class="row">
                                 <div class="col-md-6">
@@ -230,7 +230,7 @@ if($_GET['id'])
                                         <label>Dropoff location</label>
                                         <input type="text" name="dropoff_location" value="<?php echo $row['Dropoff_location']; ?>" class="form-control"><br>
                                         <label>Length</label>
-                                        <input type="text" name="length" value="<?php echo $row['Length']; ?>" class="form-control"><br>
+                                        <input type="text" name="length" value="<?php echo $row['length']; ?>" class="form-control"><br>
                                         <label>Delivery Date</label>
                                         <input type="text" name="delivery_date" value="<?php echo $row['Delivery_date']; ?>" class="form-control"><br>
                                         <label>Status</label>

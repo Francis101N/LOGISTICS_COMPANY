@@ -26,7 +26,7 @@ $id = $_POST['id'];
 // }
 
 
-$query = "update orders set Token = '$token', Tracking_no  = '$Tracking_no' , R_fullname = '$Fullnames' , R_email = '$Email', Freight_class = '$Freight_class', Items = '$Items',Weight = '$Weight', Pickup_location ='$Pickup_location', Dropoff_location ='$Dropoff_location', Length ='$Length', Delivery_date = '$Delivery_date', Status = '$Status' where id = '$id'"; 
+$query = "update orders set Tracking_no  = '$Tracking_no' , R_fullname = '$Fullnames' , R_email = '$Email', Freight_class = '$Freight_class', Items = '$Items',Weight = '$Weight', Pickup_location ='$Pickup_location', Dropoff_location ='$Dropoff_location', Length ='$Length', Delivery_date = '$Delivery_date', Status = '$Status' where id = '$id'"; 
 
 $result = mysqli_query($conn,$query);
 

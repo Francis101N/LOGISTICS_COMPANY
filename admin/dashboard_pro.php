@@ -21,7 +21,7 @@ if (!filter_var($username, FILTER_VALIDATE_EMAIL)) {
 } 
 
 
-$query = "select * from admin where Username = '$username' and '$password'";
+$query = "select Username, Password from admin where Username = '$username' and Password = '$password'";
 $result = mysqli_query($conn,$query);
 if (!$result){
     echo 'error with your query';
