@@ -15,9 +15,19 @@ if(!$_SESSION['valid_user'])
 include('connect.php');
 require_once('fns.php');
 
+function decode($encodedId) {
+    // Add back missing padding if needed
+    $padding = strlen($encodedId) % 4;
+    if ($padding > 0) {
+        $encodedId .= str_repeat('=', 4 - $padding);
+    }
+
+    return base64_decode(strtr($encodedId, '-_', '+/'));
+}
+
 if($_GET['id'])
 {
-    $id = $_GET['id'];
+    $id = decode($_GET['id']);
     $query = "select * from orders where id  = '$id'";
     $result = mysqli_query($conn,$query);
     $row = mysqli_fetch_array($result);
@@ -242,7 +252,7 @@ if($_GET['id'])
                                         <input type="hidden" value="<?php echo $id; ?>" name="id">
                                     </div>
                                     <div class="myfields">
-                                        <input type="submit" value="Save Changes" class="form-control btn btn-danger">
+                                        <input type="submit" value="Save Changes" class="form-control btn btn-danger text-light">
                                     </div>
                                 </div>
 

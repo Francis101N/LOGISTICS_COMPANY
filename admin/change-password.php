@@ -203,7 +203,7 @@ if(!$_SESSION['valid_user'])
                                         <input type="password" name="confirm" class="form-control">
                                     </div>
                                     <div class="myfields">
-                                        <input type="submit" value="Change Password" class="form-control btn btn-danger">
+                                        <input type="submit" value="Change Password" class="form-control btn btn-danger text-light">
                                     </div>
                                 </div>
                             </div>

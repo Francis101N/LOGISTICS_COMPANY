@@ -200,8 +200,9 @@ $order_num = mysqli_num_rows($order_result);
                         <div class="white-box">
                             <h3 class="box-title">Orders</h3>
                             <p class="text-muted">Orders completed <code>and their details</code></p>
-                            <p class="text-end"><a href="add-order.php" class="btn btn-danger text-light">ADD ORDER</a></p>
-                  
+                            <p class="text-end"><a href="add-order.php" class="btn btn-danger text-light">ADD ORDER</a>
+                            </p>
+
                             <div class="table-responsive">
                                 <table class="table text-nowrap">
                                     <thead>
@@ -223,6 +224,10 @@ $order_num = mysqli_num_rows($order_result);
                                     </thead>
                                     <tbody>
                                         <?php
+
+                                        function encode($id) {
+                                             return rtrim(strtr(base64_encode($id), '+/', '-_'), '=');
+                                             }
         for($i = 0; $i < $order_num; $i++) {
             $order_rows = mysqli_fetch_array($order_result);
         ?>
@@ -241,13 +246,13 @@ $order_num = mysqli_num_rows($order_result);
                                             <td><?php echo $order_rows['Status']; ?></td>
                                             <td>
                                                 <!-- Edit Button (Link to Edit Page) -->
-                                                <a href="edit_order.php?id=<?php echo $order_rows['id']; ?>"
+                                                <a href="edit_order.php?id=<?php echo encode($order_rows['id']); ?>"
                                                     class="btn btn-sm btn-primary">
                                                     <i class="fas fa-edit"></i> Edit
                                                 </a>
                                                 <!-- Delete Button (Trigger a Modal or Direct Delete) -->
-                                                <a href="delete_order.php?id=<?php echo $order_rows['id']; ?>"
-                                                    class="btn btn-sm btn-danger"
+                                                <a href="delete_order.php?id=<?php echo encode($order_rows['id']); ?>"
+                                                    class="btn btn-sm btn-danger text-light"
                                                     onclick="return confirm('Are you sure you want to delete this order?');">
                                                     <i class="fas fa-trash"></i> Delete
                                                 </a>

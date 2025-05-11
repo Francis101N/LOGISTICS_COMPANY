@@ -182,7 +182,7 @@ if(!$_SESSION['valid_user'])
                     <div class="col-md-12">
                         <div class="white-box">
                             <h3 class="box-title">Add a new Order to the system</h3>
-                            <form action="proc_order.php" method="post" enctype="multipart/form-data">
+                            <form action="proc_order.php" method="post">
                             <div class="row">
                                 <div class="col-md-6">
                                     <?php if($error) {
